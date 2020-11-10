@@ -1,0 +1,15 @@
+version: '2.1'
+services:
+  nginx:
+    build: nginx
+    command: nginx -g "daemon off;"
+    container_name: app_nginx
+    depends_on:
+      - apache
+    ports:
+      - "5000:5000"
+  apache:
+    build: apache
+    container_name: app_apache
+    #ports:
+    #  - "5001:80"
